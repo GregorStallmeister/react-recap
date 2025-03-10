@@ -7,7 +7,7 @@ import {ToDoListDisplay} from "./ToDoListDisplay.tsx";
 import {Footer} from "./Footer.tsx";
 
 function App() {
-    const [toDoInteractDtos, setToDoInteractDtos] = useState<ToDoInteractDto[]>()
+    const [toDoInteractDtos, setToDoInteractDtos] = useState<ToDoInteractDto[]>([])
 
     function loadToDoDtos() {
         axios.get("/api/todo")
@@ -26,7 +26,7 @@ function App() {
         <div className="app">
             <Header/>
             <ToDoListDisplay toDoList={toDoInteractDtos}/>
-            <Footer />
+            <Footer setToDos={setToDoInteractDtos} toDos={toDoInteractDtos} />
         </div>
     )
 }
