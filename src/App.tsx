@@ -25,8 +25,12 @@ function App() {
     return (
         <div className="app">
             <Header/>
-            <ToDoListDisplay toDoList={toDoInteractDtos}/>
-            <Footer setToDos={setToDoInteractDtos} toDos={toDoInteractDtos} />
+            <ToDoListDisplay toDoList={toDoInteractDtos}
+                             setToDos={setToDoInteractDtos}
+                             loadToDos={loadToDoDtos}/>
+            <Footer
+                toDos={toDoInteractDtos}
+            />
         </div>
     )
 }
