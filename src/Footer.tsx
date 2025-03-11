@@ -7,7 +7,7 @@ export function Footer() {
         <div className="footer">
             <Link to="/home" >Home</Link>
             &nbsp;&nbsp;&nbsp;
-            <Link to="/todolist">ToDo List</Link>
+            <Link to="/todolist">ToDos List</Link>
         </div>
     )
 }
