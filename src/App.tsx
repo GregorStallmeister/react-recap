@@ -25,6 +25,21 @@ function App() {
         loadToDoDtos()
     }, [])
 
+    function addToDo(description: string) {
+        axios.post("/api/todo",
+            {
+                description: description,
+                status: "OPEN"
+            })
+            .then((response) => {
+                console.log(response)
+                loadToDoDtos()
+            })
+            .catch((errorResponse) => {
+                console.log(errorResponse)
+            })
+    }
+
     return (
         <div className="app">
             <Header/>
@@ -41,7 +56,7 @@ function App() {
                 }/>
             </Routes>
 
-            <Footer/>
+            <Footer addToDo={addToDo}/>
         </div>
     )
 }
