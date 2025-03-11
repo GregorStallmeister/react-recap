@@ -1,12 +1,6 @@
-import {useState} from "react";
-import {ToDoInteractDto} from "./ToDoInteractDto.tsx";
 import {Link} from "react-router";
 
-type Props = {
-    toDos: ToDoInteractDto[]
-}
-
-export function Footer(props: Props) {
+export function Footer() {
 
 
     return (

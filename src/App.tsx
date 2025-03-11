@@ -40,9 +40,8 @@ function App() {
                                      setFilterStatus={setFilterStatus}/>
                 }/>
             </Routes>
-            <Footer
-                toDos={toDoInteractDtos}
-            />
+
+            <Footer/>
         </div>
     )
 }
