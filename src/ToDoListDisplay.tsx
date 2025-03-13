@@ -18,7 +18,7 @@ export function ToDoListDisplay(props: Props) {
     useEffect(() => {
         console.log("Mounting ToDoListDisplay")
         setInput(props.filterStatus)
-    }, [])
+    }, [props.filterStatus])
 
     if (props.toDoList === undefined) {
         return (
