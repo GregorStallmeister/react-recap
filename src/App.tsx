@@ -7,10 +7,12 @@ import {ToDoListDisplay} from "./ToDoListDisplay.tsx";
 import {Footer} from "./Footer.tsx";
 import {Route, Routes} from "react-router";
 import {Home} from "./Home.tsx";
+import {ToDoDetails} from "./ToDoDetails.tsx";
 
 function App() {
     const [toDoInteractDtos, setToDoInteractDtos] = useState<ToDoInteractDto[]>([])
     const [filterStatus, setFilterStatus] = useState<string>("")
+    const [toDoDetailsID, setToDoDetailsID] = useState<string>("")
 
     function loadToDoDtos() {
         axios.get("/api/todo")
@@ -52,8 +54,10 @@ function App() {
                                      setToDos={setToDoInteractDtos}
                                      loadToDos={loadToDoDtos}
                                      filterStatus={filterStatus}
-                                     setFilterStatus={setFilterStatus}/>
+                                     setFilterStatus={setFilterStatus}
+                                     setToDoDetailsID={setToDoDetailsID}/>
                 }/>
+                <Route path="/tododetails" element={<ToDoDetails/>}/>
             </Routes>
 
             <Footer addToDo={addToDo}/>

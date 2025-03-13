@@ -7,7 +7,8 @@
 }
 
 body {
-    background-color: darkslategray;
+    /*background-color: darkslategray;*/
+    background-color: cadetblue;
 }
 
 .app {
@@ -39,12 +40,18 @@ body {
 }
 
 button {
-    padding: 5px;
+    padding: 3px;
+    background-color: cadetblue;
 }
 
 input {
-    padding: 5px;
+    padding: 3px;
+    background-color: cadetblue;
     /*width: 200px;*/
+}
+
+a {
+    color: cadetblue;
 }
 
 h1 {

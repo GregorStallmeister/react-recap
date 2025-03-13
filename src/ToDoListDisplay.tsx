@@ -1,5 +1,6 @@
 import {ToDoInteractDto} from "./ToDoInteractDto.tsx";
 import {useEffect, useState} from "react";
+import {useNavigate} from "react-router";
 
 type Props = {
     toDoList: ToDoInteractDto[]
@@ -7,10 +8,12 @@ type Props = {
     loadToDos: () => void
     filterStatus: string
     setFilterStatus: (filterStatus: string) => void
+    setToDoDetailsID: (toDoDetailsID: string) => void
 }
 
 export function ToDoListDisplay(props: Props) {
     const [input, setInput] = useState<string>("")
+    const navigate = useNavigate()
 
     useEffect(() => {
         console.log("Mounting ToDoListDisplay")
@@ -23,11 +26,23 @@ export function ToDoListDisplay(props: Props) {
         )
     }
 
+    function onClick(toDoID: string) {
+        props.setToDoDetailsID(toDoID)
+        navigate("/tododetails")
+    }
+
     return (
         <div>
             <ul>
                 {props.toDoList.map(toDo => (
-                    <li key={toDo.id}>{toDo.id}, {toDo.description}, {toDo.status}</li>
+                    <li key={toDo.id}>{toDo.id}, {toDo.description}, {toDo.status}
+                        &nbsp;
+                        <button onClick={() => {
+                            console.log("Button Details clicked at ToDo " + toDo.id)
+                            onClick(toDo.id)
+                        }}>Details
+                        </button>
+                    </li>
                 ))
                 }
             </ul>
@@ -45,8 +60,7 @@ export function ToDoListDisplay(props: Props) {
                 if (toDosFiltered.length > 0) {
                     props.setToDos(toDosFiltered)
                     props.setFilterStatus(input)
-                }
-                else {
+                } else {
                     setInput("Status not known!")
                 }
             }}>Filter
