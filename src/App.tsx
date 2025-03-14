@@ -42,6 +42,14 @@ function App() {
             })
     }
 
+    function saveToDo(toDo: ToDoInteractDto) {
+
+    }
+
+    function deleteToDo(toDoId: string) {
+
+    }
+
     return (
         <div className="app">
             <Header/>
@@ -57,7 +65,11 @@ function App() {
                                      setFilterStatus={setFilterStatus}
                                      setToDoDetailsID={setToDoDetailsID}/>
                 }/>
-                <Route path="/tododetails" element={<ToDoDetails/>}/>
+                <Route path="/tododetails" element={<ToDoDetails
+                    toDos={toDoInteractDtos}
+                    toDoID={toDoDetailsID}
+                    saveToDo={saveToDo}
+                    deleteToDo={deleteToDo}/>}/>
             </Routes>
 
             <Footer addToDo={addToDo}/>
