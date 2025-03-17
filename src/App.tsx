@@ -5,9 +5,9 @@ import {ToDoInteractDto} from "./ToDoInteractDto.tsx";
 import axios from "axios";
 import {ToDoListDisplay} from "./ToDoListDisplay.tsx";
 import {Footer} from "./Footer.tsx";
-import {Route, Routes} from "react-router";
 import {Home} from "./Home.tsx";
 import {ToDoDetails} from "./ToDoDetails.tsx";
+import {Route, Routes} from 'react-router';
 
 function App() {
     const [toDoInteractDtos, setToDoInteractDtos] = useState<ToDoInteractDto[]>([])
@@ -43,7 +43,14 @@ function App() {
     }
 
     function saveToDo(toDo: ToDoInteractDto) {
-
+        axios.put("/api/todo/" + toDo.id, toDo)
+            .then((response) => {
+                console.log(response)
+                loadToDoDtos()
+            })
+            .catch((errorResponse) => {
+                console.log(errorResponse)
+            })
     }
 
     function deleteToDo(toDoId: string) {
