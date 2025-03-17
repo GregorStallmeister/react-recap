@@ -78,6 +78,7 @@ export function ToDoDetails(props: Readonly<Props>) {
                         <button onClick={
                             () => {
                                 props.deleteToDo(toDoToDisplay?.id)
+                                navigate("/todolist")
                             }
                         }>Delete
                         </button>

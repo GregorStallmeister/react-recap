@@ -54,7 +54,14 @@ function App() {
     }
 
     function deleteToDo(toDoId: string) {
-
+        axios.delete("/api/todo/" + toDoId)
+            .then((response) => {
+                console.log(response)
+                loadToDoDtos()
+            })
+            .catch((errorResponse) => {
+                console.log(errorResponse)
+            })
     }
 
     return (
