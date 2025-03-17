@@ -1,5 +1,6 @@
 import {ToDoInteractDto} from "./ToDoInteractDto.tsx";
 import {useEffect, useState} from "react";
+import {useNavigate} from "react-router";
 
 type Props = {
     toDos: ToDoInteractDto[]
@@ -8,9 +9,11 @@ type Props = {
     deleteToDo: (toDoID: string) => void
 }
 
-export function ToDoDetails(props: Props) {
+export function ToDoDetails(props: Readonly<Props>) {
     const [description, setDescription] = useState<string>("")
     const [status, setStatus] = useState<string>("")
+
+    const navigate = useNavigate()
 
     const toDoToDisplay: ToDoInteractDto | undefined = props.toDos
         .find(toDoActual => {
@@ -31,6 +34,10 @@ export function ToDoDetails(props: Props) {
     return (
         <div>
             <table>
+                <tr>
+                    <th>&nbsp;</th>
+                    <th>ToDo Details</th>
+                </tr>
                 <tr>
                     <td><label>ID:</label></td>
                     <td><input readOnly={true} value={toDoToDisplay?.id} size={80}/></td>
@@ -62,6 +69,7 @@ export function ToDoDetails(props: Props) {
                         <button onClick={
                             () => {
                                 props.saveToDo({id: toDoToDisplay.id, description, status})
+                                navigate("/todolist")
                             }
                         }>Save
                         </button>
@@ -70,7 +78,8 @@ export function ToDoDetails(props: Props) {
                             () => {
                                 props.deleteToDo(toDoToDisplay?.id)
                             }
-                        }>Delete</button>
+                        }>Delete
+                        </button>
                     </td>
                 </tr>
             </table>
