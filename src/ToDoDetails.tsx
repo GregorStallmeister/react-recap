@@ -34,6 +34,7 @@ export function ToDoDetails(props: Readonly<Props>) {
     return (
         <div>
             <table>
+                <tbody>
                 <tr>
                     <th>&nbsp;</th>
                     <th>ToDo Details</th>
@@ -82,6 +83,7 @@ export function ToDoDetails(props: Readonly<Props>) {
                         </button>
                     </td>
                 </tr>
+                </tbody>
             </table>
         </div>
     )
