@@ -28,7 +28,7 @@ export function ToDoDetails(props: Readonly<Props>) {
     useEffect(() => {
         setDescription(toDoToDisplay.description)
         setStatus(toDoToDisplay.status)
-    }, []);
+    }, [setDescription, setStatus]);
 
 
     return (
