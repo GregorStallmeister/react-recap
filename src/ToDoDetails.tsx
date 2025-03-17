@@ -28,7 +28,7 @@ export function ToDoDetails(props: Readonly<Props>) {
     useEffect(() => {
         setDescription(toDoToDisplay.description)
         setStatus(toDoToDisplay.status)
-    }, []);
+    }, [setDescription, setStatus]);
 
 
     return (
@@ -78,6 +78,7 @@ export function ToDoDetails(props: Readonly<Props>) {
                         <button onClick={
                             () => {
                                 props.deleteToDo(toDoToDisplay?.id)
+                                navigate("/todolist")
                             }
                         }>Delete
                         </button>
